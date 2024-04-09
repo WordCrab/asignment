@@ -8,11 +8,15 @@ public class Problem2 {
         for (int i = 0; i < n; i++) {
             array[i] = scanner.nextInt();
         }
-        double sum = 0;
-        for (int i = 0; i < n; i++) {
-            sum += array[i];
-        }
+        double sum = findSum(array, n);
         double average = sum / n;
         System.out.println(average);
+    }
+
+    static double findSum(int[] array, int n) {
+        if (n <= 0)
+            return 0;
+        else
+            return (findSum(array, n - 1) + array[n - 1]);
     }
 }

@@ -8,12 +8,13 @@ public class Problem1 {
         for (int i = 0; i < n; i++) {
             array[i] = scanner.nextInt();
         }
-        int min = array[0];
-        for (int i = 1; i < n; i++) {
-            if (array[i] < min) {
-                min = array[i];
-            }
-        }
-        System.out.println(min);
+        System.out.println(findMin(array, n));
     }
-}  
+
+    static int findMin(int[] array, int n) {
+        if (n == 1)
+            return array[0];
+        else
+            return Math.min(array[n - 1], findMin(array, n - 1));
+    }
+}
